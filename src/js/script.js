@@ -1,15 +1,27 @@
 let list = document.querySelector("ul");
-let ButtonAdd = document.getElementById("buttonAdd");
+const buttonAdd = document.getElementById("buttonAdd");
+const taskInput = document.getElementById("taskInput");
 
-ButtonAdd.addEventListener("click", addTask);
+buttonAdd.addEventListener("click", addTask);
+
+function inputLength(){
+    return taskInput.value.length;
+};
 
 function addTask(event){
-    let TaskInput = document.getElementById("taskInput");
-    let ValueInput = TaskInput.value;
+    let valueInput = taskInput.value;
     const ItemList = document.createElement("li");
-    ItemList.innerText = ValueInput;
-    const ButtonRemove = document.createElement("button");
-    ButtonRemove.innerText = "Remove";
-    ItemList.appendChild(ButtonRemove); 
+    ItemList.innerText = valueInput;
+
+    const buttonRemove = document.createElement("button");
+    buttonRemove.innerText = "X";
+    ItemList.appendChild(buttonRemove); 
+
+    buttonRemove.addEventListener("click", deleteTask);
+    function deleteTask(){
+        ItemList.classList.add("deleteTask");
+    };
+
     list.appendChild(ItemList);
+    taskInput.value = "";
 };
