@@ -22,6 +22,11 @@ function addTask(event){
         ItemList.classList.add("deleteTask");
     };
 
+    ItemList.addEventListener("click", completeTask);
+    function completeTask(){
+        ItemList.classList.toggle("completeTask");
+    };
+
     list.appendChild(ItemList);
     taskInput.value = "";
 };
