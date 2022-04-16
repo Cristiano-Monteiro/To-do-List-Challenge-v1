@@ -4,22 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-do-List-Challenge-v1</title>
+    <title>ToDo-List-Challenge-v1</title>
     <link rel="stylesheet" href="src/css/style.css">
+    <link rel="shortcut icon" href="src/images/icon-to-do-list.png" type="image/x-icon">
 </head>
 
 <body>
     <main>
-        <h1><img src="/src/images/icon-list.png" alt="icon-to-do-list">ToDo List - v1</h1>
+        <h1><img src="/src/images/icon-to-do-list.png" alt="icon-to-do-list">ToDo List - v1</h1>
         <p id="help">Instruções sobre o site</p>
         <div class="helpRemove">
             <p>Escreva suas tarefas no campo de texto abaixo.</p>
-            <p>Adicione a tarefa apertando "Enter" ou clicando no botão "Adicionar/Add".</p>
+            <p>Adicione a tarefa apertando "Enter" ou clicando no ícone de <span>lápis</span> ao lado.</p>
             <p>Complete a tarefa clicando em cima dela.</p>
-            <p>Exclua a tarefa clicando no botão <span>"X"</span>.</p>
+            <p>Exclua a tarefa clicando no botão <span>X</span>.</p>
+            <hr>
+            <p>
+                ©2022 - Todos os direitos reservados a Cristiano Monteiro. Todas as imagens foram usadas 
+                exclusivamente para fins estudantis.
+            </p>
         </div>
-        <input type="text" id="taskInput" placeholder="Adicione uma tarefa..." maxlength="30">
-        <button id="buttonAdd">Adicionar/Add</button>
+        <div class="inputAndButton">
+            <input type="text" id="taskInput" placeholder="Adicione uma tarefa..." maxlength="60">
+            <button id="buttonAdd"><img src="/src/images/pencil.png" alt="imagem de um lápis"></button>
+        </div>
         <ul></ul>
     </main>
 </body>

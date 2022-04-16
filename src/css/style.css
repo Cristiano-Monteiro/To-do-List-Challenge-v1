@@ -6,54 +6,69 @@ body{
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     background-color: black;
-    color: white;
+    color: #fff;
     font-weight: 800;
 }
 
 main{
     width: 100%;
-    max-width: 70%;
+    height: calc(100vh + 10vh);
+    max-width: 80%;
     text-align: center;
 }
 
-main img{
-    width: 25px;
-    margin-right: 10px;
-    background-color: white;
+main h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-main span{
+h1 img{
+    width: 80px;
+    margin-right: 10px;
+}
+
+p:nth-child(2) span{
+    color: green;
+}
+
+p:nth-child(4) span{
     color: red;
 }
 
 main input{
-    width: 80%;
-    height: 35px;
+    width: 90%;
+    height: 42px;
     border-radius: 5px;
     border: none;
+    margin-right: 10px;
 }
 
 main #buttonAdd{
-    height: 40px;
+    background-color: green;
     border-radius: 6px;
     border: none;
-    font-weight: 700;
 }
 
 main #buttonAdd:hover{
-    color: white;
-    background-color: black;
-    border: 1px solid white;
+    background-color: rgb(34, 243, 34);
+}
+
+main #buttonAdd:hover, ul li:hover, li button:hover, #help:hover{
     cursor: pointer;
 }
 
+#buttonAdd img{
+    width: 40px;
+}
+
 ul{
-    width: 90%;
     list-style: none;
+    padding: 0%;
 }
 
 ul li{
-    border: 1px solid white;
+    border: 1px solid #fff;
     border-radius: 10px;
     padding: 18px;
     margin-bottom: 15px;
@@ -62,14 +77,10 @@ ul li{
     justify-content: space-between;
 }
 
-ul li:hover{
-    cursor: pointer;
-}
-
 li button{
-    background-color: red;
+    background-color: rgb(187, 24, 32);
     border: none;
-    width: 5%;
+    width: 40px;
     border-radius: 10px;
     font-size: larger;
     font-weight: 900;
@@ -77,8 +88,7 @@ li button{
 }
 
 li button:hover{
-    border: 2px solid white;
-    cursor: pointer;
+    background-color: red;
 }
 
 .deleteTask, .helpRemove{
@@ -93,14 +103,13 @@ li button:hover{
 #help{
     background-color: gray;
     padding: 10px;
-    width: 40%;
+    width: 300px;
     margin: auto;
     border-radius: 25px;
     margin-bottom: 20px;
 }
 
 #help:hover{
-    cursor: pointer;
     color: black;
 }
 
@@ -112,4 +121,43 @@ div{
     width: 80%;
     margin: auto;
     margin-bottom: 20px;
+}
+
+.inputAndButton{
+    background-color: black;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (max-width: 476px) {
+    main h1{
+        flex-direction: column;
+        font-size: 10vw;
+    }
+
+    #help{
+        width: 80%;
+    }
+
+    #help, main input, div{
+        font-size: 4vw;
+    }
+
+    h1 img{
+        margin: 0%;
+        width: 40%;
+    }
+
+    main input{
+        margin-bottom: 10px;
+        margin-right: 0%;
+    }
+
+    main #buttonAdd{
+        width: 80%;
+    }
+
+    .inputAndButton{
+        flex-direction: column;
+    }
 }
