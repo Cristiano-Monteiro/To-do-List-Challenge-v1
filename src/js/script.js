@@ -2,10 +2,8 @@ let list = document.querySelector("ul");
 const buttonAdd = document.getElementById("buttonAdd");
 const taskInput = document.getElementById("taskInput");
 
-buttonAdd.addEventListener("click", addTask);
-
 function inputLength(){
-    return taskInput.value.length;
+    return taskInput.value.trim().length;
 };
 
 function addTask(event){
@@ -29,4 +27,22 @@ function addTask(event){
 
     list.appendChild(ItemList);
     taskInput.value = "";
+};
+
+buttonAdd.addEventListener("click", addAfterClick);
+
+function addAfterClick(){
+    const isNotEmpty = inputLength() != 0;
+    if(isNotEmpty){
+        addTask();
+    };
+};
+
+taskInput.addEventListener("keypress", addAfterEnterPressed);
+
+function addAfterEnterPressed(event){
+    const isNotEmptyAndEnterPressed = inputLength() != 0 && event.which === 13;
+    if(isNotEmptyAndEnterPressed){
+        addTask();
+    };
 };

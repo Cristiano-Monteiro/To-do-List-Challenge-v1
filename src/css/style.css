@@ -63,6 +63,5 @@ li button:hover{
 }
 
 .completeTask{
-    text-decoration: line-through;
-    background-color: green;
+    background-color: rgb(34, 243, 34);
 }
