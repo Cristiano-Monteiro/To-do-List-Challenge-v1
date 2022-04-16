@@ -11,8 +11,13 @@
 <body>
     <main>
         <h1><img src="/src/images/icon-list.png" alt="icon-to-do-list">ToDo List - v1</h1>
-        <p>Escreva suas tarefas no campo de texto abaixo.</p>
-        <p>Adicione apertando "Enter" ou clicando no botão "Adicionar/Add".</p>
+        <p id="help">Instruções sobre o site</p>
+        <div class="helpRemove">
+            <p>Escreva suas tarefas no campo de texto abaixo.</p>
+            <p>Adicione a tarefa apertando "Enter" ou clicando no botão "Adicionar/Add".</p>
+            <p>Complete a tarefa clicando em cima dela.</p>
+            <p>Exclua a tarefa clicando no botão <span>"X"</span>.</p>
+        </div>
         <input type="text" id="taskInput" placeholder="Adicione uma tarefa..." maxlength="30">
         <button id="buttonAdd">Adicionar/Add</button>
         <ul></ul>

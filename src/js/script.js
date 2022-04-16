@@ -1,6 +1,14 @@
 let list = document.querySelector("ul");
 const buttonAdd = document.getElementById("buttonAdd");
 const taskInput = document.getElementById("taskInput");
+const buttonHelp = document.getElementById("help");
+const divHelp = document.querySelector("div");
+
+buttonHelp.addEventListener("click", buttonHelpClicked);
+
+function buttonHelpClicked(){
+    divHelp.classList.toggle("helpRemove");
+};
 
 function inputLength(){
     return taskInput.value.trim().length;
