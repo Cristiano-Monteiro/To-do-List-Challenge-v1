@@ -12,8 +12,8 @@ body{
 
 main{
     width: 100%;
-    height: calc(100vh + 10vh);
     max-width: 80%;
+    height: auto;
     text-align: center;
 }
 
