@@ -9,6 +9,17 @@
 - (EN) To-do-List challenge using HTML, CSS and JS.
 - (PT-BR) Desafio de uma lista de tarefas usando HTML, CSS e JS.
 
+### What I learned / O que eu aprendi
+```js
+divHelp.classList.toggle("helpRemove");
+
+ItemList.classList.add("deleteTask");
+
+taskInput.addEventListener("keypress", addAfterEnterPressed);
+
+event.which === 13
+```
+
 ### Useful resources / Recursos úteis
 - [Como Criar uma Lista de Tarefas com JavaScript - Feature Code](https://www.youtube.com/watch?v=xzf4DOnG-fo&ab_channel=FeatureCode) - Este vídeo me ajudou a melhorar meu código. / This video helped me improve my code.
 - [TODO LIST em HTML, CSS e JS - Programador BR](https://www.youtube.com/watch?v=qGk6NV9bM8s&t=277s&ab_channel=ProgramadorBR) - Este vídeo me ajudou a melhorar meu código. / This video helped me improve my code.
