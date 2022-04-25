@@ -4,6 +4,40 @@ const taskInput = document.getElementById("taskInput");
 const buttonHelp = document.getElementById("help");
 const divHelp = document.querySelector("div");
 
+let allTasksSaved = [];
+console.log(allTasksSaved)
+
+onload = function pageUpdate(){
+    allTasksSaved = JSON.parse(localStorage.getItem('oldTasks'));
+
+    if (Array.isArray(allTasksSaved)){
+        let cont = 0;
+        while (cont <= allTasksSaved.length){
+            let valueInput = allTasksSaved[cont].taskValue;
+            const ItemList = document.createElement("li");
+            ItemList.innerText = valueInput;
+    
+            const buttonRemove = document.createElement("button");
+            buttonRemove.innerText = "X";
+            ItemList.appendChild(buttonRemove); 
+    
+            buttonRemove.addEventListener("click", deleteTask);
+            function deleteTask(){
+                ItemList.classList.add("deleteTask");
+            };
+    
+            ItemList.addEventListener("click", completeTask);
+            function completeTask(){
+                ItemList.classList.toggle("completeTask");
+            };
+    
+            list.appendChild(ItemList);
+    
+            cont += 1;
+        };
+    };
+};
+
 buttonHelp.addEventListener("click", buttonHelpClicked);
 
 function buttonHelpClicked(){
@@ -18,6 +52,14 @@ function addTask(event){
     let valueInput = taskInput.value;
     const ItemList = document.createElement("li");
     ItemList.innerText = valueInput;
+
+    let eachTask = {
+        taskValue: valueInput
+    };
+
+    allTasksSaved.push(eachTask);
+
+    localStorage.setItem('oldTasks', JSON.stringify(allTasksSaved));
 
     const buttonRemove = document.createElement("button");
     buttonRemove.innerText = "X";
