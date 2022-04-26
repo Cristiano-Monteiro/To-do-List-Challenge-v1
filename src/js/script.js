@@ -4,8 +4,10 @@ const taskInput = document.getElementById("taskInput");
 const buttonHelp = document.getElementById("help");
 const divHelp = document.querySelector("div");
 
-let allTasksSaved = [];
-console.log(allTasksSaved)
+function idGenerator(){
+    let id = Math.floor(Math.random() * 101);
+    return id;
+};
 
 onload = function pageUpdate(){
     allTasksSaved = JSON.parse(localStorage.getItem('oldTasks'));
@@ -57,9 +59,9 @@ function addTask(event){
         taskValue: valueInput
     };
 
-    allTasksSaved.push(eachTask);
+    let idTask = 'IdTask' + idGenerator().toString();
 
-    localStorage.setItem('oldTasks', JSON.stringify(allTasksSaved));
+    localStorage.setItem(idTask, JSON.stringify(eachTask));
 
     const buttonRemove = document.createElement("button");
     buttonRemove.innerText = "X";
