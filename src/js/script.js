@@ -9,7 +9,14 @@ function idGenerator(){
     return id;
 };
 
-onload = function pageUpdate(){
+let allTasksSaved = [{
+    taskValue: 'Teste',
+    idTask: 'Teste'
+}];
+
+console.log(allTasksSaved)
+
+/* onload = function pageUpdate(){
     allTasksSaved = JSON.parse(localStorage.getItem('oldTasks'));
 
     if (Array.isArray(allTasksSaved)){
@@ -38,7 +45,7 @@ onload = function pageUpdate(){
             cont += 1;
         };
     };
-};
+}; */
 
 buttonHelp.addEventListener("click", buttonHelpClicked);
 
@@ -55,13 +62,18 @@ function addTask(event){
     const ItemList = document.createElement("li");
     ItemList.innerText = valueInput;
 
-    let eachTask = {
-        taskValue: valueInput
-    };
-
     let idTask = 'IdTask' + idGenerator().toString();
 
-    localStorage.setItem(idTask, JSON.stringify(eachTask));
+    console.log(allTasksSaved);
+
+    let eachTask = {
+        taskValue: valueInput,
+        idTask: idTask
+    };
+
+    allTasksSaved.push(eachTask);
+
+    localStorage.setItem('oldTasks', JSON.stringify(allTasksSaved));
 
     const buttonRemove = document.createElement("button");
     buttonRemove.innerText = "X";
