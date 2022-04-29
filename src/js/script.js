@@ -9,19 +9,17 @@ function idGenerator(){
     return id;
 };
 
-let allTasksSaved = [{
-    taskValue: 'Teste',
-    idTask: 'Teste'
-}];
+let allTasksSaved = [];
 
-console.log(allTasksSaved)
-
-/* onload = function pageUpdate(){
-    allTasksSaved = JSON.parse(localStorage.getItem('oldTasks'));
+onload = function pageUpdate(){
+    if (localStorage.getItem('savedTasks') != null){
+        allTasksSaved = JSON.parse(localStorage.getItem('savedTasks'));
+        console.log(allTasksSaved)
+    };
 
     if (Array.isArray(allTasksSaved)){
         let cont = 0;
-        while (cont <= allTasksSaved.length){
+        while (cont < allTasksSaved.length){
             let valueInput = allTasksSaved[cont].taskValue;
             const ItemList = document.createElement("li");
             ItemList.innerText = valueInput;
@@ -45,7 +43,7 @@ console.log(allTasksSaved)
             cont += 1;
         };
     };
-}; */
+};
 
 buttonHelp.addEventListener("click", buttonHelpClicked);
 
@@ -64,8 +62,6 @@ function addTask(event){
 
     let idTask = 'IdTask' + idGenerator().toString();
 
-    console.log(allTasksSaved);
-
     let eachTask = {
         taskValue: valueInput,
         idTask: idTask
@@ -73,7 +69,7 @@ function addTask(event){
 
     allTasksSaved.push(eachTask);
 
-    localStorage.setItem('oldTasks', JSON.stringify(allTasksSaved));
+    localStorage.setItem('savedTasks', JSON.stringify(allTasksSaved));
 
     const buttonRemove = document.createElement("button");
     buttonRemove.innerText = "X";
