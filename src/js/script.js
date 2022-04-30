@@ -14,13 +14,10 @@ let allTasksSaved = [];
 onload = function pageUpdate(){
     if (localStorage.getItem('savedTasks') != null){
         allTasksSaved = JSON.parse(localStorage.getItem('savedTasks'));
-        console.log(allTasksSaved)
-    };
 
-    if (Array.isArray(allTasksSaved)){
-        let cont = 0;
-        while (cont < allTasksSaved.length){
-            let valueInput = allTasksSaved[cont].taskValue;
+        let numberOfTasks = 0;
+        while (numberOfTasks < allTasksSaved.length){
+            let valueInput = allTasksSaved[numberOfTasks].taskValue;
             const ItemList = document.createElement("li");
             ItemList.innerText = valueInput;
     
@@ -40,7 +37,7 @@ onload = function pageUpdate(){
     
             list.appendChild(ItemList);
     
-            cont += 1;
+            numberOfTasks += 1;
         };
     };
 };
