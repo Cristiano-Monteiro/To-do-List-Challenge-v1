@@ -15,9 +15,8 @@ onload = function pageUpdate(){
     if (localStorage.getItem('savedTasks') != null){
         allTasksSaved = JSON.parse(localStorage.getItem('savedTasks'));
 
-        let numberOfTasks = 0;
-        while (numberOfTasks < allTasksSaved.length){
-            let valueInput = allTasksSaved[numberOfTasks].taskValue;
+        allTasksSaved.forEach((task, index) => {
+            let valueInput = allTasksSaved[index].taskValue;
             const ItemList = document.createElement("li");
             ItemList.innerText = valueInput;
     
@@ -28,6 +27,13 @@ onload = function pageUpdate(){
             buttonRemove.addEventListener("click", deleteTask);
             function deleteTask(){
                 ItemList.classList.add("deleteTask");
+                let taskToRemove = allTasksSaved[index].idTask;
+                allTasksSaved = allTasksSaved.filter((task) => {
+                    if (task.idTask != taskToRemove){
+                        return task;
+                    };
+                });
+                localStorage.setItem('savedTasks', JSON.stringify(allTasksSaved));
             };
     
             ItemList.addEventListener("click", completeTask);
@@ -36,9 +42,7 @@ onload = function pageUpdate(){
             };
     
             list.appendChild(ItemList);
-    
-            numberOfTasks += 1;
-        };
+        });
     };
 };
 
@@ -75,6 +79,13 @@ function addTask(event){
     buttonRemove.addEventListener("click", deleteTask);
     function deleteTask(){
         ItemList.classList.add("deleteTask");
+        let taskToRemove = eachTask.idTask;
+        allTasksSaved = allTasksSaved.filter((task) => {
+            if (task.idTask != taskToRemove){
+                return task;
+            };
+        });
+        localStorage.setItem('savedTasks', JSON.stringify(allTasksSaved));
     };
 
     ItemList.addEventListener("click", completeTask);
