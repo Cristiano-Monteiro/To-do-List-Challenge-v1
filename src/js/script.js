@@ -5,7 +5,7 @@ const buttonHelp = document.getElementById("help");
 const divHelp = document.querySelector("div");
 
 function idGenerator(){
-    let id = Math.floor(Math.random() * 101);
+    let id = Math.floor(Math.random() * 1001);
     return id;
 };
 
