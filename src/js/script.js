@@ -5,7 +5,13 @@ const buttonHelp = document.getElementById("help");
 const divHelp = document.querySelector("div");
 
 function idGenerator(){
-    let id = Math.floor(Math.random() * 1001);
+    let id = 
+        Math.floor(Math.random() * 10001).toString() +
+        new Date().getHours().toString() +
+        new Date().getMinutes().toString() +
+        new Date().getSeconds().toString() +
+        new Date().getMilliseconds().toString() +
+        new Date().getTime();
     return id;
 };
 
@@ -15,7 +21,7 @@ onload = function pageUpdate(){
     if (localStorage.getItem('savedTasks') != null){
         allTasksSaved = JSON.parse(localStorage.getItem('savedTasks'));
 
-        allTasksSaved.forEach((task, index) => {
+        allTasksSaved.forEach((_, index) => {
             let valueInput = allTasksSaved[index].taskValue;
             const ItemList = document.createElement("li");
             ItemList.innerText = valueInput;
@@ -61,7 +67,7 @@ function addTask(event){
     const ItemList = document.createElement("li");
     ItemList.innerText = valueInput;
 
-    let idTask = 'IdTask' + idGenerator().toString();
+    let idTask = 'IdTask' + idGenerator();
 
     let eachTask = {
         taskValue: valueInput,
